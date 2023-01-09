@@ -1,0 +1,37 @@
+﻿@model List<Pertenencia>
+
+        <h1>Pertenencias</h1>
+
+        <p>
+            <a asp-action="Crear">Crear</a>
+        </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pertenencia</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Propietario</th>
+            </tr>
+        </thead>
+        <tbody>
+        @try
+        {
+            foreach (var item in Model)
+            {
+                        <tr>
+                            <td>@Html.DisplayFor(m=>item.Nombre)</td>
+                            <td>@Html.DisplayFor(m=>item.Cantidad)</td>
+                            <td>@Html.DisplayFor(m=>item.Precio)</td>
+                            <td>@Html.DisplayFor(m=>item.IdUsuarioNavigation.Email)</td>
+                            
+                        </tr>
+            }
+        }
+        catch (Exception)
+        {
+            
+            throw;
+        }
+        </tbody>
+    </table>
